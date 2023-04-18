@@ -3,8 +3,8 @@
   display: flex;
 }
 
-.App > div {
-  margin-right: 50px;  
+.App>div {
+  margin-right: 50px;
 }
 
 .error {
@@ -17,4 +17,8 @@
 
 .active-filter {
   background-color: aquamarine;
+}
+
+.is-done {
+  opacity: 0.5;
 }
