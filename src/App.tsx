@@ -8,18 +8,6 @@ export type FilterValuesType = "all" | "active" | "completed";
 
 function App() {
 
-  // let initTasks1: Array<TaskType> = [
-  //   { id: 1, title: "HTML&CSS", isDone: true },
-  //   { id: 2, title: "JS", isDone: true },
-  //   { id: 3, title: "TypeScript", isDone: true },
-  // ]
-
-  // let tasks2: Array<TaskType> = [
-  //   { id: 1, title: "Once upon a time in HollyWood", isDone: true },
-  //   { id: 2, title: "Man in Black", isDone: true },
-  //   { id: 3, title: "John Wick", isDone: false },
-  // ]
-
   let [tasks, setTasks] = useState([
     { id: v1(), title: "Once upon a time in HollyWood", isDone: true },
     { id: v1(), title: "Man in Black", isDone: true },
@@ -68,7 +56,8 @@ function App() {
         removeTask={removeTask}
         changeFilter={changeFilter}
         addTask={addTask}
-        changeTaskStatus={changeStatus} />
+        changeTaskStatus={changeStatus}
+        filter={filter} />
       {/* <Todolist title="Movies" tasks={tasks2} /> */}
     </div>
   );
