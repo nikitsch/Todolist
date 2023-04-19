@@ -5,10 +5,11 @@ type PropsType = {
   title: string
   tasks: Array<TaskType>
   removeTask: (id: string) => void
-  changeFilter: (value: FilterValuesType) => void
+  changeFilter: (value: FilterValuesType, todolistId: string) => void
   addTask: (title: string) => void
   changeTaskStatus: (taskId: string, isDone: boolean) => void
   filter: FilterValuesType
+  id: string
 }
 
 export type TaskType = {
@@ -39,14 +40,13 @@ export function Todolist(props: PropsType) {
       setNewTaskTitle("");
     }
   };
-  const onAllClickHandler = () => props.changeFilter("all");
-  const onActiveClickHandler = () => props.changeFilter("active");
-  const onCompletedClickHandler = () => props.changeFilter("completed");
+  const onAllClickHandler = () => props.changeFilter("all", props.id);
+  const onActiveClickHandler = () => props.changeFilter("active", props.id);
+  const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
 
   return (
     <div>
       <h3>{props.title}</h3>
-      <h3>What to learn</h3>
       <div>
         <input value={newTaskTitle}
           onChange={onNewTitleChangeHandle}
