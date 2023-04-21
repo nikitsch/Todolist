@@ -94,6 +94,10 @@ function App() {
 
           let tasksForTodolist = tasksObj[tl.id];
 
+
+          let countActiveTasks = tasksForTodolist.filter(t => !t.isDone);
+          
+
           if (tl.filter === "completed") {
             tasksForTodolist = tasksForTodolist.filter(t => t.isDone)
           }
@@ -110,7 +114,8 @@ function App() {
             addTask={addTask}
             changeTaskStatus={changeStatus}
             filter={tl.filter}
-            removeList={removeList} />
+            removeList={removeList}
+            countActiveTasks={countActiveTasks.length} />
         })
       }
     </div>

@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, useState } from "react"
+import { ChangeEvent, KeyboardEvent, useEffect, useState } from "react"
 import { FilterValuesType } from "./App"
 
 type PropsType = {
@@ -11,6 +11,7 @@ type PropsType = {
   filter: FilterValuesType
   id: string
   removeList: (todolistId: string) => void
+  countActiveTasks: number
 }
 
 export type TaskType = {
@@ -48,12 +49,20 @@ export function Todolist(props: PropsType) {
     props.removeList(props.id)
   }
 
+  let [count, setCount] = useState(0);
+  count = props.countActiveTasks
+
+  // useEffect(() => {
+  //   document.title = `Active tasks: ${count}`;
+  // });
+
   return (
     <div>
       <h3>
         {props.title}
         <button onClick={removeTodolist}>X</button>
       </h3>
+      <p>Active tasks: {count}</p>
       <div>
         <input value={newTaskTitle}
           onChange={onNewTitleChangeHandle}
